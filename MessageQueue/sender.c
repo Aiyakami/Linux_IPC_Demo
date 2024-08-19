@@ -38,6 +38,10 @@ int main(){
         //strncpy这里的n指定复制长度
         strncpy(msg_data.text,buffer,MAX_TEXT);
         //发送到消息队列
+        /*
+        msgsnd向消息队列发送消息的系统调用函数 int msgsnd(int msqid, const void *msgp, size_t msgsz, int msgflg);
+        msgflg控制函数的行为 0: 表示使用默认行为。如果消息队列已满，进程会阻塞等待空间可用。
+        */
         if(msgsnd(msgid,(void*)&msg_data,MAX_TEXT,0)==-1){
             perror("msgsnd faild");
             exit(EXIT_FAILURE);

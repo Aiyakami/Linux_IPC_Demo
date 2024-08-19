@@ -37,6 +37,10 @@ int main() {
     }
 
     // 删除消息队列
+    /*
+    msgctl 是一个用于控制和管理消息队列的系统调用函数
+    IPC_RMID表示删除消息队列，该功能为消息队列的控制函数参数控制
+    */
     if (msgctl(msgid, IPC_RMID, 0) == -1) {
         perror("msgctl(IPC_RMID) failed");
         exit(EXIT_FAILURE);
